@@ -1,0 +1,39 @@
+
+<div class="container-fluid">
+<nav class="navbar navbar-default navbar-fixed-top">
+	
+	
+	<span class="">
+	  <!-- <img class="logo img-rounded" src={{logoUrl}} /> -->
+	</span>
+	
+	
+	<span class="link-container">
+		<a data-name="posts" [routerLink]="['Posts']">Posts</a>
+		<a data-name="submit" [routerLink]="['PostSubmitForm']">Submit a Post</a>
+        <a data-name="blog" href="https://blog.followiot.com">News Blog</a>
+		<a data-name="login"  *ngIf="!loggedIn" [routerLink]="['LoginForm']">Login</a>
+		<a data-name="logout"  *ngIf="loggedIn" [routerLink]="['LogoutForm']">Logout</a>
+	</span>
+	
+</nav>
+	
+<router-outlet></router-outlet>
+   <!-- bug / footer floats on post details page -->
+   <!--
+   <div class="container">
+   <div class="row">
+	    <div class="col-xs-12" style="position: relative; bottom: -4em; height: 150px; background: #ccc;  border-top: 4px solid black;">
+
+	    	<div class="footer">
+	    		
+	    		 —{{title}}
+
+	    	</div>
+
+	    </div>
+   </div>
+   </div>
+   -->
+
+</div>

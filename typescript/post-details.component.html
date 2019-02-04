@@ -1,0 +1,55 @@
+<div class="container-fluid">
+   <div class="row">
+	    <div class="col-md-8" style="padding: 0 0">
+
+	    	
+
+	    </div>
+   </div>
+
+   <div class="row">
+	   <div class="hero-container">    	 
+	         <!-- ../size/bgcolor/font-color --> 
+	   		<!--  <img src="//placehold.it/1624x700/000000/ffffff?text=&nbsp;" class="img-responsive" async> -->
+
+	   		<!-- <img src="//c1.staticflickr.com/1/69/208884916_15a0a8d1ed_z.jpg?zz=1" class="img-responsive" async> -->
+
+	   		<!-- //c2.staticflickr.com/4/3147/2766707385_d291baabbc_b.jpg -->
+	   		<div class="content background-highlight">
+
+		   		<h3 class="title">{{post.title}}</h3>
+		    	<div *ngIf="post.account"> — by <span class="username">{{post.account.username}}</span> 
+		    	<i>on {{post.simpleDate}} ({{post.moment}})</i> </div>
+	   			
+	   		</div>
+	   		
+
+	   </div>
+   </div>
+
+</div>
+
+
+<div class="container">
+
+	<div class="row">
+		<div class="col-md-3">
+
+		</div>
+		<div class="col-md-9">	
+
+			<h3 class="title">
+				{{post.title}}
+			</h3> 
+			<div *ngIf="post.account"> — by <span class="username">{{post.account.username}}</span> 
+	    	<i>on {{post.simpleDate}} ({{post.moment}})</i> </div>
+			
+			<p><div *ngIf="post.text" [innerHTML]='post.text | markdown'></div><p>
+			<span class="url">Visit the site: <a href="{{post.url}}" target="_blank">{{post.url}}</a></span>
+
+			<comments [postId]='post.id' [(comments)]='comments'></comments>
+
+		</div>
+		
+	</div>
+</div>

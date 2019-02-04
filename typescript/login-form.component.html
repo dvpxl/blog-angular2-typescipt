@@ -1,0 +1,57 @@
+<div class="container login">
+	<h4 name="login">login</h4>
+    <form [ngFormModel]="loginForm" (submit)="onLogin($event)">
+      <div class="form-group">
+        <label for="email">email</label>
+        <input ngControl="email" type="text" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="password">password</label>
+        <input ngControl="password" type="password" class="form-control" required>
+      </div>
+    
+      <button [class.active]=inProgressLogin type="submit" class="btn btn-primary has-spinner">
+         <span class="spinner"><span class="glyphicon glyphicon-star"></span> </span>
+         login
+      </button>
+
+      <div class="error" *ngIf="errorMessageLogin">error: {{errorMessageLogin.error.message}}</div>
+    </form>
+</div>
+
+<div class="container create-account">
+
+<!-- template for adding bootstrap form control block
+  <div class="form-group has-warning">
+    <label class="control-label" for="inputWarning">Input with warning</label>
+    <input type="text" class="form-control" id="inputWarning">
+    <span class="help-block">Something may have gone wrong</span>
+  </div>
+ -->
+	<h4 name="create-account">create account</h4>
+  <div class="success" *ngIf="successMessageCreateAccount">{{successMessageCreateAccount}}</div>
+    <form [ngFormModel]="createAccountForm" (submit)="onCreateAccount($event)">
+      <div class="form-group" [ngClass]="{'has-success': usernameAvailable()}">
+        <label for="username">username</label>
+        <div class="input-group">
+          <input ngControl="username" type="text" class="form-control" placeholder="(required)"  required>
+          <span class="input-group-btn">
+              <button (click)="checkUsernameAvailable()" type="button" class="btn btn-primary">check username</button>
+          </span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">email</label>
+        <input ngControl="email" type="text" class="form-control" placeholder="(required)"  required>
+        <span class="help-block">Email is used to ONLY to verify your account.</span>
+      </div>
+      <div class="form-group">
+        <label for="password">password</label>
+        <input ngControl="password" type="password" class="form-control" placeholder="(required)" required>
+        <span class="help-block">For your protection, your email and password is encrypted via SHA256.  You MUST know your email address for account recovery.</span>
+      </div>
+     
+      <button type="submit" class="btn btn-primary">create account</button>
+      <div class="error" *ngIf="errorMessageCreateAccount">error: {{errorMessageCreateAccount.error.message}}</div>
+    </form>
+</div>

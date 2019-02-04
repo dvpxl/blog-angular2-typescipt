@@ -1,0 +1,247 @@
+<html>
+  <head>
+    <base href="/">
+    <title>Angular 2 QuickStart</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+
+    <!-- prism css for code highlighting -->
+    <link rel="stylesheet" href="css/prism.css" async>
+
+    <!-- stylesheet for math equations -->
+    <!-- prism css for code highlighting -->
+    <link rel="stylesheet" href="css/mathexl.math.min.css" async>
+
+    <!-- moment.js for date formmatting -->
+<!--     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.min.js"></script>
+ -->
+
+
+
+
+  <style>
+
+     * {
+      
+    font-family: "Ubuntu", Arial, Serif;
+    }
+
+    .debug-console {
+       position: fixed;
+       background: red;
+       bottom: 0
+       left: 0;
+    }
+  </style>
+
+
+
+
+
+    <!-- 1. Load libraries -->
+    <!-- IE required polyfills, in this exact order -->
+<!--     <script src="node_modules/es6-shim/es6-shim.min.js"></script>
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+<script src="node_modules/reflect-metadata/Reflect.js"></script>
+
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <script src="node_modules/rxjs/bundles/Rx.js"></script>
+
+
+ -->
+   
+   <!-- theses 3 still needed -->
+   <script src="node_modules/es6-shim/es6-shim.min.js"></script>
+   <script src="node_modules/zone.js/dist/zone.js"></script>
+<script src="node_modules/reflect-metadata/Reflect.js"></script>
+   
+
+    <!-- -->
+    <script src="third_party/prism.js" async></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js"></script>
+
+    <!-- moment.js via node module -->
+    <script src="node_modules/moment/moment.js"></script>
+
+    <!-- showdown.min.js for markup -->
+    <script src="third_party/showdown.min.js"></script>
+
+    <script src="dist/bundle.min.js"></script>
+
+    <!-- page level ads -->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6397659206371533",
+    enable_page_level_ads: true
+  });
+</script>
+
+    <!-- adsense script -->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+    <!-- 2. Configure SystemJS -->
+    <!-- maybe remove okay since it is bundled -->
+
+<!--     <script>
+    System.config({
+
+        packages: {
+           
+
+      'app'                              : {main: 'main.js', format: 'register', defaultExtension: 'js'},
+
+            '@angular/core'                    : {defaultExtension: 'js', main: 'index.js'},
+
+            '@angular/common'                  : {defaultExtension: 'js', main: 'index.js'},
+
+            '@angular/compiler'                : {defaultExtension: 'js', main: 'index.js'},
+
+            '@angular/router'                  : {defaultExtension: 'js', main: 'index.js'},
+
+            '@angular/router-deprecated'       : {defaultExtension: 'js', main: 'index.js'},
+
+            '@angular/http'                    : {defaultExtension: 'js', main: 'index.js'},
+
+            '@angular/platform-browser'        : {defaultExtension: 'js', main: 'index.js'},
+
+            '@angular/platform-browser-dynamic': {defaultExtension: 'js', main: 'index.js'}
+
+        },
+
+        map: {
+
+            'app'                              : 'webapp',
+
+            '@angular/core'                    : 'node_modules/@angular/core',
+
+            '@angular/common'                  : 'node_modules/@angular/common',
+
+            '@angular/compiler'                : 'node_modules/@angular/compiler',
+
+            '@angular/router'                  : 'node_modules/@angular/router',
+
+            '@angular/router-deprecated'       : 'node_modules/@angular/router-deprecated',
+
+            '@angular/http'                    : 'node_modules/@angular/http',
+
+            '@angular/platform-browser'        : 'node_modules/@angular/platform-browser',
+
+            '@angular/platform-browser-dynamic': 'node_modules/@angular/platform-browser-dynamic'
+
+        }
+
+    });
+
+    System.import('app')
+            .then(null, console.error.bind(console));
+
+</script> -->
+   <!--  <script>
+      System.config({
+        map: { 
+          'rxjs': 'node_modules/rxjs'
+
+        },
+        packages: {        
+          webapp: {
+            format: 'register',
+            defaultExtension: 'js'
+          },
+          'rxjs': {defaultExtension: 'js'}
+        },
+        paths: {
+          prism: 'third_party/prism.js'
+        }
+      });
+      System.import('webapp/main')
+            .then(null, console.error.bind(console));
+    </script> -->
+
+
+    <!-- Script backup -->
+<!--   <script>
+      System.config({
+        map: { 
+          'rxjs': 'node_modules/rxjs',
+          'moment': 'node_modules/moment/moment'
+
+        },
+        packages: {        
+          webapp: {
+            format: 'register',
+            defaultExtension: 'js'
+          },
+          'rxjs': {defaultExtension: 'js'},
+          'moment': {
+            map: 'node_modules/moment/moment',
+            type: 'cjs',
+            defaultExtension: 'js'
+          }
+        },
+        paths: {
+          prism: 'third_party/prism.js',
+          map: 'node_modules/moment/moment.js'
+        }
+      });
+      System.import('webapp/main')
+            .then(null, console.error.bind(console));
+    </script> -->
+
+
+      <!-- Global Styling 
+  —————————————————————————————————————————————————— -->
+
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  </head>
+
+  <!-- 3. Display the application -->
+  <body>
+
+
+    <my-webapp>Loading...</my-webapp>
+
+
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:300,400,600,700&amp;lang=en" async />
+
+  <!-- Highlight.js for code syntax highlighting -->
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/default.min.css">
+
+  </body>
+</html>
+
+<!--  quickstart with angular2 with javascript
+
+<html>
+  <head>
+    <title>Angular 2 QuickStart</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="node_modules/es6-shim/es6-shim.min.js"></script>
+    <script src="node_modules/angular2/es6/dev/src/testing/shims_for_IE.js"></script>   
+
+    <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+    <script src="node_modules/rxjs/bundles/Rx.umd.js"></script>
+    <script src="node_modules/angular2/bundles/angular2-all.umd.js"></script>
+
+    <script src='webapp/app.component.js'></script>
+    <script src='webapp/main.js'></script>
+
+  </head>
+
+  <body>
+    <my-app>Loading...</my-app>
+  </body>
+
+</html> 
+
+-->
+

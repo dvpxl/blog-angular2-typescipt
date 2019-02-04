@@ -1,0 +1,109 @@
+<!-- 		<div class="grid js-isotope"
+  data-masonry='{ "itemSelector": ".post-item", "columnWidth": 200 }'>
+ -->
+
+	<div class="row posts">
+
+		<div class="alert alert-warning" *ngIf="errorMessage">
+	        <a (click)="dismissAlert()" class="close" data-dismiss="alert">&times;</a>
+	        <strong>Oops!</strong> {{errorMessage}}
+	    </div>
+
+
+		 <div class="left-container col-md-12">
+
+		 	 <div class="col-md-6">
+
+			 	 <div *ngFor="#post of posts" class="post-item">
+
+				 	 <div class="row">
+				 	 	 <div class="col-xs-2 vote-container">
+
+				 	 	 	 
+				 	 	 	 <div class="vote" (click)="onVoteUpClick(post)"><span class="glyphicon glyphicon-triangle-top"></span></div>
+				 	 	 	 <div style="font-size: 1.4em">{{post.metaInfo.likes}}</div>
+				 	 	 	 <div class="vote" (click)="onVoteUpClick(post)"><span class="glyphicon glyphicon-triangle-bottom"></span></div>
+				 	 	 	 
+				 	 	 </div>
+				 	 	 <div class="col-xs-10">
+				 	 	 
+				 	 	 	    <div (click)="onPostClick(post)">
+					 	 	 		<div class="header">
+									     <span class="post-title">{{post.title}}</span>
+									     <div class="post-url"> {{post.url | lowercase}}</div>
+									     <div class="extra">Posted by {{post.account.username}} <i>{{post.created}}</i></div> 
+								    </div>
+									
+									<!-- <span class="badge">{{post.id}}</span> --> 
+								 	 <div class="post-text">
+								 	 	<div [innerHtml]='post.text | markdown'>
+								 	 	</div>
+<!-- 								 	 		<div *ngIf="textIsCode">
+								 	 			<pre><code>{{post.text}}</code></pre>	
+								 	 		</div>
+								 	 		<div *ngIf="!textIsCode">
+								 	 			<pre>{{post.text}}</pre>
+								 	 		</div> -->
+								 	 		
+								 	 </div>
+							 	 </div>
+
+							 	 <!-- post metadata -->
+
+							 	 <div class="meta" style="border-bottom: 1px solid gray; border-top: 1px solid gray;">
+
+							 	     <span class="glyphicon glyphicon-eye-open"></span> Views {{post.metaInfo.views}}
+							 	 	 <span class="glyphicon glyphicon-heart"></span> Likes {{post.metaInfo.likes}}
+							 	 	 <span class="glyphicon glyphicon-comment"></span> Comments {{post.metaInfo.comments}}
+							 	 </div>
+
+							 	 <!-- code actions -->
+							 	 <div *ngIf="textIsCode" style="border-bottom: 1px solid gray; border-top: 1px solid gray;">
+
+							 	     <button (click)="onCodeHighlight()" type="button" class="btn btn-primary btn-xs">Highlight</button>
+							 	     <button (click)="onCodeRun()" type="button" class="btn btn-primary btn-xs">Run</button>
+							 	 </div>
+
+							 	 
+				 	 	 </div>
+
+				 	 </div>
+				     
+			 	 </div>
+
+				 <!-- google ads -->
+                 <div class="post-item">
+                 	<div class="row">
+	                 	<div><i></i></div>
+						<hr />
+						<!-- Google Medium Rectangle2 300x250 -->
+						<ins class="adsbygoogle"
+						     style="display:inline-block;width:300px;height:250px"
+						     data-ad-client="ca-pub-6397659206371533"
+						     data-ad-slot="8978330622"></ins>
+	                 		
+	                 	</div>
+
+
+				 </div>
+
+			 	 <!-- pagination -->
+			 	 <div class="row">
+			 	 	<button *ngIf="btnGetMorePostsEnabled" (click)="onGetNextPage()" style="height: 3em;" class="btn btn-block btn-primary" value="Load More 1">Load More</button>
+			 	 	<div *ngIf="!btnGetMorePostsEnabled">Sorry, you are not allowed to search beyond this point</div>
+			 	 </div>
+		 	 	
+		 	 </div>
+			 
+		 	
+		 </div>
+
+		 <div class="right-container col-md-6">
+
+		 </div>
+		
+	</div>
+
+
+
+

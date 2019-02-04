@@ -1,0 +1,51 @@
+<div class="alert alert-warning" *ngIf="errorMessage">
+          <a (click)="dismissAlert()" class="close" data-dismiss="alert">&times;</a>
+          <strong>Oops!</strong> {{errorMessage}}
+</div>
+
+
+  <div class="row">
+     <!-- user input -->
+     <div class="col-md-5" style="background: #ccc; padding-left: 2em;">
+        <h1>submit a post</h1>
+        <form [ngFormModel]="addPostForm" (submit)="addPost($event)">
+            <div class="form-group">
+              <label for="title">title</label>
+              <input #title ngControl="title" type="text" class="form-control" placeHolder="required" required>
+            </div>
+            <i>Please chooose to include <b>url</b> *or* <b>text</b> below, but not both.</i>
+            <hr />
+            <div class="form-group">
+              <label for="url">url</label>
+              <input ngControl="url" type="text" class="form-control" placeholder="https://site.com">
+            </div>
+            <div class="form-group">
+              <label for="text">text</label>
+              <textarea #markdown ngControl="text" type="text" class="form-control" rows="6" cols="60"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-default">New Post</button>
+            <div class="error" ng-show="errorMessage">{{errorMessage}}</div>
+        </form>
+
+     </div>
+     <!-- preview input -->
+     <div class="col-md-7 fixed"><i>Quick Preview:</i>
+
+        <div class="preview">
+            <div class="title">{{title.value}}</div>
+            <div class="markdown content" [innerHTML]="markdown.value | markdown" >
+               
+            </div>
+            <div class="source">
+
+              SOURCE: 
+              =======
+              <hr />
+              {{markdown.value}}
+            </div>
+        </div>
+     </div>
+  </div>
+
+

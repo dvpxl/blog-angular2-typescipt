@@ -1,0 +1,41 @@
+<h3>Add a comment</h3>
+<form *ngIf="formActive" [ngFormModel]="commentForm" (submit)="onCommentSubmit($event)">
+      <div class="form-group">
+        <textarea ngControl="text" [(ngModel)]="formInputText" type="text" class="form-control" rows="6" cols="60" required>(your comment)</textarea>
+      </div>
+
+       <div class="form-group">
+        <input ngControl="postId" type="hidden" value={{postId}} class="form-control" required>
+      </div>
+
+      <button type="button" type="submit">Add Comment</button>
+      <div class="error" *ngIf="errorMessageLogin">error: {{errorMessageLogin.error.message}}</div>
+</form>
+
+<div *ngIf="comments.length == 0">
+	<h3>There are no discussions yet.</h3>
+	<p>Be to <b>first to discuss</b> by adding a comment.</p>
+</div>
+
+<div *ngIf="comments.length > 0" class="comments">
+	<h3>People are discussing this topic.</h3>
+	<p>Weight in your thoughts for discussion</p>
+	<div>
+
+	   <div class="comment" *ngFor="#comment of comments">
+	   	  <span class="tip tip-left"></span>
+	      <div class="username">
+	      		<a href="/user/{{comment.account.username}}">{{comment.account.username}}</a> 
+	      		<i> on {{comment.simpleDate}} ({{comment.dateFromNow}})</i>:</div>
+	   	  <div><pre>{{comment.text}}</pre></div>
+	   </div>
+
+	</div>
+</div>	
+
+ <!-- comments pagination -->
+<div class="row">
+	<button *ngIf="btnGetMoreCommentsEnabled" (click)="btnGetMoreCommentsClicked()" style="height: 3em;" class="btn btn-block btn-primary">More Comments</button>
+	<div *ngIf="!btnGetMoreCommentsEnabled">There are no more comments.</div>
+</div>
+

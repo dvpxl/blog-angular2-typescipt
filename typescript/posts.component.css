@@ -1,0 +1,106 @@
+html, * {
+	padding: 0 0 ;
+	margin: 0 0;
+}
+
+.btn {
+	padding: 0em 1em;
+}
+
+.meta .glyphicon {
+	font-size: 1.2em;
+	padding-top: 1em;
+}
+
+.post-title {
+	color: #fff;
+	font-size: 2em;
+	font-weight: 500;
+}
+
+.post-url {
+	color: #aaa;
+}
+
+.post-item {
+
+	list-style-type: none;
+	padding: 1em 2em;
+	border: 1px solid #dff0d8;
+	margin: 1em 1em;
+
+
+}
+
+
+.post-item .header {
+
+	padding: 1em 1em;
+	background: repeating-linear-gradient(
+	  -55deg,
+	  #222,
+	  #222 10px,
+	  #333 10px,
+	  #333 20px
+   	);
+}
+
+.product-text {
+  display: none;
+}
+
+.header .extra {
+	color: #ccc;
+}
+
+.post-item:hover {
+
+	cursor: pointer;
+
+}
+
+.vote {
+	font-size: 2em;
+
+}
+
+.vote:hover {
+	color: #33bb33;
+	cursor: hand;
+}
+
+
+.vote-container {
+	max-width: 40px;
+	padding: 0 0;
+	margin: 0 0;
+	text-align: center;
+}
+
+.alert {
+	position: fixed;
+	top: 0;
+	left: 0;
+	font-size: 1.2em;
+	width: 100%;
+	height: 50%;
+	z-index: 9999;
+}
+
+.alert a {
+
+	font-size: 1.6em;
+	border: 1px solid gray;
+	padding: 1em 1em;
+}
+
+pre, code{
+    white-space: pre-wrap;       /* CSS 3 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+
+
